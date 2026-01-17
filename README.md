@@ -95,27 +95,33 @@ unzip llama-xcframework.zip
 
 ```
 ChatMate/
-├── ChatMate/
-│   ├── ChatMate/
-│   │   ├── Models/              # 数据模型
-│   │   │   └── Message.swift
-│   │   ├── Views/               # SwiftUI 视图
-│   │   │   ├── ChatView.swift
-│   │   │   ├── MessageBubbleView.swift
-│   │   │   └── InputBarView.swift
-│   │   ├── ViewModels/          # 视图模型
-│   │   │   └── ChatViewModel.swift
-│   │   ├── Services/            # 业务逻辑
-│   │   │   ├── LLMService.swift
-│   │   │   └── LibLlama.swift
-│   │   └── ChatMateApp.swift    # App 入口
-│   └── ChatMate.xcodeproj
+├── ChatMate/                    # iOS 应用代码
+│   ├── Models/                  # 数据模型
+│   │   └── Message.swift
+│   ├── Views/                   # SwiftUI 视图
+│   │   ├── ChatView.swift
+│   │   ├── MessageBubbleView.swift
+│   │   └── InputBarView.swift
+│   ├── ViewModels/              # 视图模型
+│   │   └── ChatViewModel.swift
+│   ├── Services/                # 业务逻辑
+│   │   ├── LLMService.swift
+│   │   └── LibLlama.swift
+│   ├── Assets.xcassets/         # 资源文件
+│   └── ChatMateApp.swift        # App 入口
+├── ChatMate.xcodeproj/          # Xcode 项目文件
+├── llama.xcframework/           # llama.cpp 框架
+├── docs/                        # 开发文档
+│   ├── 真机部署指南.md
+│   ├── 使用预编译XCFramework.md
+│   ├── 快速修复步骤.md
+│   └── ...
+├── scripts/                     # 工具脚本
+│   ├── download_model.py
+│   ├── clean_packages.sh
+│   └── ...
 ├── README.md
-├── .gitignore
-└── 文档/
-    ├── 真机部署指南.md
-    ├── 使用预编译XCFramework.md
-    └── 快速修复步骤.md
+└── .gitignore
 ```
 
 ## ⚠️ 注意事项
