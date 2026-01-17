@@ -28,12 +28,12 @@ struct InputBarView: View {
                 .focused($isFocused)
                 .onSubmit {
                     if !text.isEmpty {
-                        onSend()
+                        sendAndDismissKeyboard()
                     }
                 }
             
             // 发送按钮
-            Button(action: onSend) {
+            Button(action: sendAndDismissKeyboard) {
                 Image(systemName: "arrow.up.circle.fill")
                     .font(.system(size: 32))
                     .foregroundColor(canSend ? .blue : .gray)
@@ -47,6 +47,17 @@ struct InputBarView: View {
     
     private var canSend: Bool {
         !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !isDisabled
+    }
+    
+    /// 发送消息并收起键盘
+    private func sendAndDismissKeyboard() {
+        guard canSend else { return }
+        
+        // 先收起键盘
+        isFocused = false
+        
+        // 再发送消息
+        onSend()
     }
 }
 
